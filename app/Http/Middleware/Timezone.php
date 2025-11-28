@@ -17,8 +17,12 @@ class Timezone
     public function handle(Request $request, Closure $next)
     {
         $setting = Setting::first();
-        config(['app.timezone' => $setting->timezone]);
-        date_default_timezone_set($setting->timezone);
+
+        // safe fallback
+        $timezone = $setting?->timezone ?? 'UTC';
+
+        config(['app.timezone' => $timezone]);
+        date_default_timezone_set($timezone);
 
         return $next($request);
     }

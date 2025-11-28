@@ -5334,6 +5334,7 @@ __webpack_require__(/*! ./components/MainApp */ "./resources/js/components/MainA
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var laravel_echo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! laravel-echo */ "./node_modules/laravel-echo/dist/echo.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 try {
@@ -5359,13 +5360,13 @@ axios.defaults.headers.post['X-CSRF-Token'] = $('meta[name="csrf-token"]').attr(
 window.Pusher = __webpack_require__(/*! pusher-js */ "./node_modules/pusher-js/dist/web/pusher.js");
 window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   broadcaster: 'pusher',
-  key: "f3a19752d50b8d5afe04",
-  cluster: "ap2",
+  key: "",
+  cluster: "mt1",
   forceTLS: true,
   authorizer: function authorizer(channel, options) {
     return {
       authorize: function authorize(socketId, callback) {
-        axios.post("https://api.websolutionus.com/shopo" + '/seller/broadcasting/auth', {
+        axios.post(process.env.MIX_APP_URL + '/seller/broadcasting/auth', {
           socket_id: socketId,
           channel_name: channel.name
         }).then(function (response) {
@@ -5499,6 +5500,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var javascript_time_ago_locale_en_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! javascript-time-ago/locale/en.json */ "./node_modules/javascript-time-ago/locale/en.json.js");
 /* harmony import */ var javascript_time_ago_locale_ru_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! javascript-time-ago/locale/ru.json */ "./node_modules/javascript-time-ago/locale/ru.json.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 
 
 
@@ -5513,7 +5515,7 @@ javascript_time_ago__WEBPACK_IMPORTED_MODULE_4__["default"].addLocale(javascript
 
 function MessageBox(_ref) {
   var customer = _ref.customer;
-  var root_url = "https://api.websolutionus.com/shopo";
+  var root_url = process.env.MIX_APP_URL;
   var image_path = root_url + "/public/";
 
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_Chat__WEBPACK_IMPORTED_MODULE_1__.ChatContext),
@@ -5541,7 +5543,7 @@ function MessageBox(_ref) {
   };
 
   var loadEditProduct = function loadEditProduct(id) {
-    window.open("".concat("https://api.websolutionus.com/shopo", "/seller/product/").concat(id, "/edit"), '_blank');
+    window.open("".concat(process.env.MIX_APP_URL, "/seller/product/").concat(id, "/edit"), '_blank');
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
@@ -5633,6 +5635,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _contexts_Chat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../contexts/Chat */ "./resources/js/contexts/Chat.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5652,7 +5655,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function MessageForm(_ref) {
   var customer = _ref.customer;
-  var root_url = "https://api.websolutionus.com/shopo";
+  var root_url = process.env.MIX_APP_URL;
   var image_path = root_url + "/public/";
 
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_Chat__WEBPACK_IMPORTED_MODULE_1__.ChatContext),
@@ -5718,6 +5721,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _contexts_Chat__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../contexts/Chat */ "./resources/js/contexts/Chat.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5738,7 +5742,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function SingleCustomer(_ref) {
   var customer = _ref.customer;
-  var root_url = "https://api.websolutionus.com/shopo";
+  var root_url = process.env.MIX_APP_URL;
   var image_path = root_url + "/public/";
 
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_contexts_Chat__WEBPACK_IMPORTED_MODULE_2__.ChatContext),
@@ -5809,6 +5813,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* provided dependency */ var process = __webpack_require__(/*! process/browser.js */ "./node_modules/process/browser.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -5827,7 +5832,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var ChatContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)();
 
 function ChatContextProider(props) {
-  var root_url = "https://api.websolutionus.com/shopo";
+  var root_url = process.env.MIX_APP_URL;
   var image_path = root_url + "/public/";
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
@@ -31211,7 +31216,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	var installedModules = {};
 /******/
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_692__(moduleId) {
+/******/ 	function __nested_webpack_require_669__(moduleId) {
 /******/
 /******/ 		// Check if module is in cache
 /******/ 		if(installedModules[moduleId]) {
@@ -31225,7 +31230,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 		};
 /******/
 /******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_692__);
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __nested_webpack_require_669__);
 /******/
 /******/ 		// Flag the module as loaded
 /******/ 		module.l = true;
@@ -31236,20 +31241,20 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__nested_webpack_require_692__.m = modules;
+/******/ 	__nested_webpack_require_669__.m = modules;
 /******/
 /******/ 	// expose the module cache
-/******/ 	__nested_webpack_require_692__.c = installedModules;
+/******/ 	__nested_webpack_require_669__.c = installedModules;
 /******/
 /******/ 	// define getter function for harmony exports
-/******/ 	__nested_webpack_require_692__.d = function(exports, name, getter) {
-/******/ 		if(!__nested_webpack_require_692__.o(exports, name)) {
+/******/ 	__nested_webpack_require_669__.d = function(exports, name, getter) {
+/******/ 		if(!__nested_webpack_require_669__.o(exports, name)) {
 /******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
 /******/ 		}
 /******/ 	};
 /******/
 /******/ 	// define __esModule on exports
-/******/ 	__nested_webpack_require_692__.r = function(exports) {
+/******/ 	__nested_webpack_require_669__.r = function(exports) {
 /******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 		}
@@ -31261,35 +31266,35 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// mode & 2: merge all properties of value into the ns
 /******/ 	// mode & 4: return value when already ns object
 /******/ 	// mode & 8|1: behave like require
-/******/ 	__nested_webpack_require_692__.t = function(value, mode) {
-/******/ 		if(mode & 1) value = __nested_webpack_require_692__(value);
+/******/ 	__nested_webpack_require_669__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __nested_webpack_require_669__(value);
 /******/ 		if(mode & 8) return value;
 /******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
 /******/ 		var ns = Object.create(null);
-/******/ 		__nested_webpack_require_692__.r(ns);
+/******/ 		__nested_webpack_require_669__.r(ns);
 /******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
-/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __nested_webpack_require_692__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __nested_webpack_require_669__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
 /******/ 		return ns;
 /******/ 	};
 /******/
 /******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__nested_webpack_require_692__.n = function(module) {
+/******/ 	__nested_webpack_require_669__.n = function(module) {
 /******/ 		var getter = module && module.__esModule ?
 /******/ 			function getDefault() { return module['default']; } :
 /******/ 			function getModuleExports() { return module; };
-/******/ 		__nested_webpack_require_692__.d(getter, 'a', getter);
+/******/ 		__nested_webpack_require_669__.d(getter, 'a', getter);
 /******/ 		return getter;
 /******/ 	};
 /******/
 /******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__nested_webpack_require_692__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/ 	__nested_webpack_require_669__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__nested_webpack_require_692__.p = "";
+/******/ 	__nested_webpack_require_669__.p = "";
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __nested_webpack_require_692__(__nested_webpack_require_692__.s = 2);
+/******/ 	return __nested_webpack_require_669__(__nested_webpack_require_669__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -31737,19 +31742,19 @@ exports.decode = decode;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __nested_webpack_require_20450__) {
+/***/ (function(module, exports, __nested_webpack_require_19901__) {
 
 // required so we don't have to do require('pusher').default etc.
-module.exports = __nested_webpack_require_20450__(3).default;
+module.exports = __nested_webpack_require_19901__(3).default;
 
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __nested_webpack_require_20662__) {
+/***/ (function(module, __webpack_exports__, __nested_webpack_require_20105__) {
 
 "use strict";
 // ESM COMPAT FLAG
-__nested_webpack_require_20662__.r(__webpack_exports__);
+__nested_webpack_require_20105__.r(__webpack_exports__);
 
 // CONCATENATED MODULE: ./src/runtimes/web/dom/script_receiver_factory.ts
 var ScriptReceiverFactory = (function () {
@@ -33736,10 +33741,10 @@ var presence_channel_PresenceChannel = (function (_super) {
 /* harmony default export */ var presence_channel = (presence_channel_PresenceChannel);
 
 // EXTERNAL MODULE: ./node_modules/@stablelib/utf8/lib/utf8.js
-var utf8 = __nested_webpack_require_20662__(1);
+var utf8 = __nested_webpack_require_20105__(1);
 
 // EXTERNAL MODULE: ./node_modules/@stablelib/base64/lib/base64.js
-var base64 = __nested_webpack_require_20662__(0);
+var base64 = __nested_webpack_require_20105__(0);
 
 // CONCATENATED MODULE: ./src/core/channels/encrypted_channel.ts
 var encrypted_channel_extends = (undefined && undefined.__extends) || (function () {
