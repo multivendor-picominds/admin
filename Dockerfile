@@ -16,13 +16,15 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www
 COPY . /var/www
 
+# nginx config template
 COPY docker/nginx/default.conf.template /etc/nginx/conf.d/default.conf.template
-RUN envsubst < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf
 
+# supervisor config
 COPY docker/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
 
 RUN chown -R www-data:www-data /var/www
 
 EXPOSE 8080
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisor.conf"]
+# 🔥 Generate nginx config at runtime, THEN start supervisor
+CMD sh -c "envsubst '\$PORT' < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && supervisord -c /etc/supervisor/conf.d/supervisor.conf"
