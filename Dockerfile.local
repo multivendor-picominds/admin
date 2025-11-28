@@ -1,0 +1,33 @@
+FROM php:8.2-fpm
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpng-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libzip-dev \
+    zip unzip git curl vim
+
+# Install PHP extensions
+RUN docker-php-ext-install pdo_mysql mbstring zip bcmath
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg
+RUN docker-php-ext-install gd
+
+# Install Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+# Set working directory
+WORKDIR /var/www
+
+# Copy app files (only for build – actual files come via volume)
+COPY . /var/www
+
+# Permissions
+RUN chown -R www-data:www-data /var/www
+
+# Expose PHP-FPM port
+EXPOSE 9000
+
+# Start PHP-FPM
+CMD ["php-fpm"]
